@@ -26,13 +26,13 @@ return [
     /**
      * Quotes.
      */
-    [
+/*     [
         'key'        => 'quotes',
         'name'       => 'admin::app.layouts.quotes',
         'route'      => 'admin.quotes.index',
         'sort'       => 3,
         'icon-class' => 'icon-quote',
-    ],
+    ], */
 
     /**
      * Emails.
@@ -45,6 +45,12 @@ return [
         'sort'       => 4,
         'icon-class' => 'icon-mail',
     ], [
+        'key'   => 'cases',
+        'name'  => 'admin::app.layouts.cases',
+        'route' => 'admin.cases.index',
+        'sort'  => 3,
+        'icon-class'  => 'icon-quote',
+    ],[
         'key'        => 'mail.inbox',
         'name'       => 'admin::app.layouts.mail.inbox',
         'route'      => 'admin.mail.index',

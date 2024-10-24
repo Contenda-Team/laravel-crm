@@ -26,31 +26,6 @@
                                 @lang('admin::app.leads.view.quotes.expired-at')
                             </x-admin::table.th>
 
-                            <x-admin::table.th class="!px-2">
-                                @lang('admin::app.leads.view.quotes.sub-total')
-                                <span class="currency-code">({{ core()->currencySymbol(config('app.currency')) }})</span>
-                            </x-admin::table.th>
-
-                            <x-admin::table.th class="!px-2">
-                                @lang('admin::app.leads.view.quotes.discount')
-                                <span class="currency-code">({{ core()->currencySymbol(config('app.currency')) }})</span>
-                            </x-admin::table.th>
-
-                            <x-admin::table.th class="!px-2">
-                                @lang('admin::app.leads.view.quotes.tax')
-                                <span class="currency-code">({{ core()->currencySymbol(config('app.currency')) }})</span>
-                            </x-admin::table.th>
-
-                            <x-admin::table.th class="!px-2">
-                                @lang('admin::app.leads.view.quotes.adjustment')
-                                <span class="currency-code">({{ core()->currencySymbol(config('app.currency')) }})</span>
-                            </x-admin::table.th>
-
-                            <x-admin::table.th class="!px-2">
-                                @lang('admin::app.leads.view.quotes.grand-total')
-                                <span class="currency-code">({{ core()->currencySymbol(config('app.currency')) }})</span>
-                            </x-admin::table.th>
-
                             <x-admin::table.th class="actions"></x-admin::table.th>
                         </x-admin::table.thead.tr>
                     </x-admin::table.thead>

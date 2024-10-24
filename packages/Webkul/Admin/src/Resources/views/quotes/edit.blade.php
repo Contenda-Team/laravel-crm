@@ -257,26 +257,6 @@
                                 @lang('admin::app.quotes.create.quantity')
                             </x-admin::table.th>
                 
-                            <x-admin::table.th class="text-center">
-                                @lang('admin::app.quotes.create.price') ({{ core()->currencySymbol(config('app.currency')) }})
-                            </x-admin::table.th>
-                
-                            <x-admin::table.th class="text-center">
-                                @lang('admin::app.quotes.create.amount') ({{ core()->currencySymbol(config('app.currency')) }})
-                            </x-admin::table.th>
-                
-                            <x-admin::table.th class="text-center">
-                                @lang('admin::app.quotes.create.discount') ({{ core()->currencySymbol(config('app.currency')) }})
-                            </x-admin::table.th>
-                
-                            <x-admin::table.th class="text-center">
-                                @lang('admin::app.quotes.create.tax') ({{ core()->currencySymbol(config('app.currency')) }})
-                            </x-admin::table.th>
-                
-                            <x-admin::table.th class="text-center">
-                                @lang('admin::app.quotes.create.total') ({{ core()->currencySymbol(config('app.currency')) }})
-                            </x-admin::table.th>
-
                             <x-admin::table.th 
                                 v-if="products.length > 1"
                                 class="!px-2 ltr:text-right rtl:text-left"
