@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9cae30842ed7c9020a3f23f06e1c0b2",
+    "content-hash": "6ead930e464717bdf480c41e48349cc7",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -8345,7 +8345,7 @@
         },
         {
             "name": "krayin/krayin-package-generator",
-            "version": "dev-master",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krayin/krayin-package-generator.git",
@@ -8357,7 +8357,6 @@
                 "reference": "44458fba147812176c2f69dba6994d1d421017ce",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -11330,14 +11329,16 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "krayin/krayin-package-generator": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1"
     },
     "platform-dev": [],
+<<<<<<< Updated upstream
     "plugin-api-version": "2.3.0"
+=======
+    "plugin-api-version": "2.6.0"
+>>>>>>> Stashed changes
 }

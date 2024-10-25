@@ -24,14 +24,22 @@ return [
     ],
 
     /**
-     * Quotes.
+     * Toxicology.
      */
     [
+<<<<<<< Updated upstream
         'key'        => 'quotes',
         'name'       => 'admin::app.layouts.quotes',
         'route'      => 'admin.quotes.index',
         'sort'       => 3,
         'icon-class' => 'icon-quote',
+=======
+        'key'        => 'toxicology',
+        'name'       => 'admin::app.layouts.toxicology',
+        'route'      => 'admin.toxicology.index',
+        'sort'       => 6,
+        'icon-class' => 'icon-leads',
+>>>>>>> Stashed changes
     ],
 
     /**
@@ -45,6 +53,15 @@ return [
         'sort'       => 4,
         'icon-class' => 'icon-mail',
     ], [
+<<<<<<< Updated upstream
+=======
+        'key'   => 'cases',
+        'name'  => 'test', //*why does this not show on the front end? original 'admin::app.layouts.cases'
+        'route' => 'admin.cases.index',
+        'sort'  => 3,
+        'icon-class'  => 'icon-quote',
+    ],[
+>>>>>>> Stashed changes
         'key'        => 'mail.inbox',
         'name'       => 'admin::app.layouts.mail.inbox',
         'route'      => 'admin.mail.index',
