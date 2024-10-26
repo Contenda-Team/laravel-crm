@@ -6,7 +6,7 @@
         <a href="{{ route('admin.dashboard.index') }}">
             <img
                 class="h-10"
-                src="{{ request()->cookie('dark_mode') ? vite()->asset('images/dark-logo.svg') : vite()->asset('images/logo.svg') }}"
+                src="{{ asset('admin/build/assets/logo.svg') }}"
                 id="logo-image"
                 alt="{{ config('app.name') }}"
             />
@@ -176,7 +176,8 @@
     </div>
 
     <div class="flex items-center gap-2.5">
-        <!-- Dark mode -->
+        <!-- Remove or comment out the dark mode section -->
+        {{-- 
         <v-dark>
             <div class="flex">
                 <span
@@ -184,6 +185,7 @@
                 ></span>
             </div>
         </v-dark>
+        --}}
 
         <!-- Admin profile -->
         <x-admin::dropdown position="bottom-{{ in_array(app()->getLocale(), ['fa', 'ar']) ? 'left' : 'right' }}">
@@ -759,3 +761,7 @@
         });
     </script>
 @endPushOnce
+
+
+
+
