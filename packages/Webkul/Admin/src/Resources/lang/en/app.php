@@ -524,11 +524,11 @@ return [
         'persons' => [
             'index' => [
                 'title'          => 'Deceased',
-                'create-btn'     => 'Create Deceased',
-                'create-success' => 'Deceased created successfully.',
-                'update-success' => 'Deceased updated successfully.',
-                'delete-success' => 'Deceased deleted successfully.',
-                'delete-failed'  => 'Deceased can not be deleted.',
+                'create-btn'     => 'Create New Deceased Case',
+                'create-success' => 'Deceased Case created successfully.',
+                'update-success' => 'Deceased Case updated successfully.',
+                'delete-success' => 'Deceased Case deleted successfully.',
+                'delete-failed'  => 'Deceased Case can not be deleted.',
 
                 'datagrid' => [
                     'contact-numbers'   => 'Contact Numbers',
@@ -613,13 +613,13 @@ return [
             ],
 
             'create' => [
-                'title'    => 'Create Deceased',
-                'save-btn' => 'Save Deceased',
+                'title'    => 'Create Deceased Case',
+                'save-btn' => 'Save Deceased Case',
             ],
 
             'edit' => [
-                'title'    => 'Edit Deceased',
-                'save-btn' => 'Save Deceased',
+                'title'    => 'Edit Deceased Case',
+                'save-btn' => 'Save Deceased Case',
             ],
         ],
 

@@ -26,13 +26,13 @@ return [
     /**
      * Quotes.
      */
-    [
+   /*  [
         'key'        => 'quotes',
         'name'       => 'admin::app.layouts.quotes',
         'route'      => 'admin.quotes.index',
         'sort'       => 3,
         'icon-class' => 'icon-quote',
-    ],
+    ], */
 
     /**
      * Emails.
