@@ -71,7 +71,9 @@
                 <x-admin::attributes
                     :custom-attributes="app('Webkul\Attribute\Repositories\AttributeRepository')->findWhere([
                         'entity_type' => 'persons',
-                    ])"
+                    ])->filter(function ($attribute) {
+                        return $attribute->code !== 'user_id';
+                    })->sortBy('sort_order')"
                 />
                 
                 {!! view_render_event('admin.persons.create.form_controls.after') !!}
