@@ -1,0 +1,27 @@
+{
+    "name": "incidents/incidents",
+    "description": "incidents",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "FSH Tech",
+            "email": "crystal@fshtech.io"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "fsh\\Incidents\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "fsh\\Incidents\\Providers\\IncidentsServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}
