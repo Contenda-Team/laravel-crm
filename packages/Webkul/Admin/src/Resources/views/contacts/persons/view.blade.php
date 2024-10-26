@@ -92,8 +92,16 @@
             {!! view_render_event('admin.contact.persons.view.right.before', ['person' => $person]) !!}
 
             <!-- Stages Navigation -->
-            <x-admin::activities :endpoint="route('admin.contacts.persons.activities.index', $person->id)" />
-
+            <x-admin::activities
+    :endpoint="route('admin.contacts.persons.activities.index', $person->id)"
+    :types="[
+        ['name' => 'all', 'label' => trans('admin::app.contacts.persons.view.activities.index.all')],
+        ['name' => 'notes', 'label' => trans('admin::app.contacts.persons.view.activities.index.notes')],
+        ['name' => 'files', 'label' => trans('admin::app.contacts.persons.view.activities.index.files')],
+        ['name' => 'emails', 'label' => trans('admin::app.contacts.persons.view.activities.index.emails')],
+        // Removed 'lunches' from the types array
+    ]"
+/>
             {!! view_render_event('admin.contact.persons.view.right.after', ['person' => $person]) !!}
         </div>
     </div>
