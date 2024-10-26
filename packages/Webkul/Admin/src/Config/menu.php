@@ -26,18 +26,18 @@ return [
     /**
      * Quotes.
      */
-    [
+   /*  [
         'key'        => 'quotes',
         'name'       => 'admin::app.layouts.quotes',
         'route'      => 'admin.quotes.index',
         'sort'       => 3,
         'icon-class' => 'icon-quote',
-    ],
+    ], */
 
     /**
      * Emails.
      */
-    [
+    /* [
         'key'        => 'mail',
         'name'       => 'admin::app.layouts.mail.title',
         'route'      => 'admin.mail.index',
@@ -79,7 +79,7 @@ return [
         'params'     => ['route' => 'trash'],
         'sort'       => 5,
         'icon-class' => '',
-    ],
+    ], */
     // , [
     //     'key'        => 'mail.setting',
     //     'name'       => 'admin::app.layouts.mail.setting',
@@ -91,20 +91,20 @@ return [
     /**
      * Activities.
      */
-    [
+   /*  [
         'key'        => 'activities',
         'name'       => 'admin::app.layouts.activities',
         'route'      => 'admin.activities.index',
         'sort'       => 5,
         'icon-class' => 'icon-activity',
-    ],
+    ], */
 
     /**
      * Contacts.
      */
     [
         'key'        => 'persons',
-        'name'       => 'admin::app.layouts.persons',
+        'name'       => 'admin::app.layouts.person',
         'route'      => 'admin.contacts.persons.index',
         'sort'       => 6,
         'icon-class' => 'icon-contact',

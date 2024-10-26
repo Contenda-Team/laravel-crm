@@ -2,8 +2,8 @@
 
 return [
     'acl' => [
-        'leads'           => 'Leads',
-        'lead'            => 'Lead',
+        'leads'           => 'Cases',
+        'lead'            => 'Case',
         'quotes'          => 'Quotes',
         'mail'            => 'Mail',
         'inbox'           => 'Inbox',
@@ -364,18 +364,18 @@ return [
                     'title'   => 'Search',
 
                     'tabs' => [
-                        'leads'    => 'Leads',
+                        'Cases'    => 'Cases',
                         'quotes'   => 'Quotes',
                         'persons'  => 'Deceased',
                         'products' => 'Products',
                     ],
 
                     'explore-all-products'          => 'Explore all Products',
-                    'explore-all-leads'             => 'Explore all Leads',
+                    'explore-all-Cases'             => 'Explore all Cases',
                     'explore-all-contacts'          => 'Explore all Contacts',
                     'explore-all-quotes'            => 'Explore all Quotes',
                     'explore-all-matching-products' => 'Explore all products matching ":query" (:count)',
-                    'explore-all-matching-leads'    => 'Explore all leads matching ":query" (:count)',
+                    'explore-all-matching-Cases'    => 'Explore all Cases matching ":query" (:count)',
                     'explore-all-matching-contacts' => 'Explore all contacts matching ":query" (:count)',
                     'explore-all-matching-quotes'   => 'Explore all quotes matching ":query" (:count)',
                 ],
@@ -466,7 +466,7 @@ return [
             'address-info-info' => 'Information about the address related to quote.',
             'quote-items'       => 'Quote Items',
             'search-products'   => 'Search Products',
-            'link-to-lead'      => 'Link to lead',
+            'link-to-Case'      => 'Link to Case',
             'quote-item-info'   => 'Add Product Request for this quote.',
             'quote-name'        => 'Quote name',
             'quantity'          => 'Quantity',
@@ -496,7 +496,7 @@ return [
             'address-info'      => 'Address Information',
             'address-info-info' => 'Information about the address related to quote.',
             'quote-items'       => 'Quote Items',
-            'link-to-lead'      => 'Link to lead',
+            'link-to-lead'      => 'Link to Case',
             'quote-item-info'   => 'Add Product Request for this quote.',
             'quote-name'        => 'Quote name',
             'quantity'          => 'Quantity',
@@ -524,11 +524,11 @@ return [
         'persons' => [
             'index' => [
                 'title'          => 'Deceased',
-                'create-btn'     => 'Create Deceased',
-                'create-success' => 'Deceased created successfully.',
-                'update-success' => 'Deceased updated successfully.',
-                'delete-success' => 'Deceased deleted successfully.',
-                'delete-failed'  => 'Deceased can not be deleted.',
+                'create-btn'     => 'Create New Deceased Case',
+                'create-success' => 'Deceased Case created successfully.',
+                'update-success' => 'Deceased Case updated successfully.',
+                'delete-success' => 'Deceased Case deleted successfully.',
+                'delete-failed'  => 'Deceased Case can not be deleted.',
 
                 'datagrid' => [
                     'contact-numbers'   => 'Contact Numbers',
@@ -618,8 +618,8 @@ return [
             ],
 
             'edit' => [
-                'title'    => 'Edit Deceased',
-                'save-btn' => 'Save Deceased',
+                'title'    => 'Edit Deceased Case',
+                'save-btn' => 'Save Deceased Case',
             ],
         ],
 
@@ -878,11 +878,11 @@ return [
             ],
 
             'helpers' => [
-                'update-related-leads'       => 'Update related leads',
+                'update-related-leads'       => 'Update related Cases',
                 'send-email-to-sales-owner'  => 'Send email to sales owner',
                 'send-email-to-participants' => 'Send email to participants',
                 'add-webhook'                => 'Add Webhook',
-                'update-lead'                => 'Update Lead',
+                'update-lead'                => 'Update Case',
                 'update-person'              => 'Update Deceased',
                 'send-email-to-person'       => 'Send email to person',
                 'add-tag'                    => 'Add Tag',
@@ -984,7 +984,7 @@ return [
                 'attributes'               => 'Attributes',
                 'attributes-info'          => 'Add custom attributes to the form.',
                 'background-color'         => 'Background Color',
-                'create-lead'              => 'Create Lead',
+                'create-lead'              => 'Create Case',
                 'customize-webform'        => 'Customize Webform',
                 'customize-webform-info'   => 'Customize your web form with element colors of your choosing.',
                 'description'              => 'Description',
@@ -994,7 +994,7 @@ return [
                 'form-submit-button-color' => 'Form Submit Button Color',
                 'form-title-color'         => 'Form Title Color',
                 'general'                  => 'General',
-                'leads'                    => 'Leads',
+                'leads'                    => 'Cases',
                 'person'                   => 'Deceased',
                 'save-btn'                 => 'Save Webform',
                 'submit-button-label'      => 'Submit Button Label',
@@ -1016,7 +1016,7 @@ return [
                 'code-snippet'              => 'Code Snippet',
                 'copied'                    => 'Copied',
                 'copy'                      => 'Copy',
-                'create-lead'               => 'Create Lead',
+                'create-lead'               => 'Create Case',
                 'customize-webform'         => 'Customize Webform',
                 'customize-webform-info'    => 'Customize your web form with element colors of your choosing.',
                 'description'               => 'Description',
@@ -1501,7 +1501,7 @@ return [
                 'id'            => 'ID',
                 'done'          => 'Is Done',
                 'not-done'      => 'Not Done',
-                'lead'          => 'Lead',
+                'lead'          => 'Case',
                 'mass-delete'   => 'Mass Delete',
                 'mass-update'   => 'Mass Update',
                 'schedule-from' => 'Schedule From',
@@ -1530,7 +1530,7 @@ return [
             'schedule_from'   => 'Schedule From',
             'location'        => 'Location',
             'comment'         => 'Comment',
-            'lead'            => 'Lead',
+            'lead'            => 'Case',
             'participants'    => 'Participants',
             'general'         => 'General',
             'persons'         => 'Deceased',
@@ -1606,7 +1606,7 @@ return [
             'delete'                     => 'Delete',
             'enter-mails'                => 'Enter email id',
             'rotten-days'                => 'Lead is rotten for :days days',
-            'search-an-existing-lead'    => 'Search an existing lead',
+            'search-an-existing-lead'    => 'Search an existing Case',
             'search-an-existing-contact' => 'Search an existing contact',
             'message'                    => 'Message',
             'add-attachments'            => 'Add Attachments',
@@ -1616,16 +1616,16 @@ return [
             'add-new-contact'            => 'Add New Contact',
             'description'                => 'Description',
             'search'                     => 'Search...',
-            'add-new-lead'               => 'Add New Lead',
+            'add-new-lead'               => 'Add New Case',
             'create-new-contact'         => 'Create New Contact',
             'save-contact'               => 'Save Contact',
-            'create-lead'                => 'Create Lead',
+            'create-lead'                => 'Create Case',
             'linked-contact'             => 'Linked Contact',
             'link-to-contact'            => 'Link To Contact',
-            'link-to-lead'               => 'Link To Lead',
-            'linked-lead'                => 'Linked Lead',
-            'lead-details'               => 'Lead Details',
-            'contact-person'             => 'Contact Person',
+            'link-to-lead'               => 'Link To Case',
+            'linked-lead'                => 'Linked Case',
+            'lead-details'               => 'Case Details',
+            'contact-person'             => 'Next of Kin',
             'product'                    => 'Product',
 
             'tags' => [
@@ -1652,26 +1652,26 @@ return [
     ],
 
     'leads' => [
-        'create-success'    => 'Lead created successfully.',
-        'update-success'    => 'Lead updated successfully.',
-        'destroy-success'   => 'Lead deleted successfully.',
-        'destroy-failed'    => 'Lead can not be deleted.',
+        'create-success'    => 'Case created successfully.',
+        'update-success'    => 'Case updated successfully.',
+        'destroy-success'   => 'Case deleted successfully.',
+        'destroy-failed'    => 'Case can not be deleted.',
 
         'index' => [
-            'title'      => 'Leads',
-            'create-btn' => 'Create Lead',
+            'title'      => 'Cases',
+            'create-btn' => 'Create Case',
 
             'datagrid' => [
                 'id'                  => 'ID',
                 'sales-person'        => 'Sales Person',
                 'subject'             => 'Subject',
                 'source'              => 'Source',
-                'lead-value'          => 'Lead Value',
-                'lead-type'           => 'Lead Type',
+                'lead-value'          => 'Case Value',
+                'lead-type'           => 'Case Type',
                 'tag-name'            => 'Tag Name',
-                'contact-person'      => 'Contact Person',
+                'contact-person'      => 'Next of Kin',
                 'stage'               => 'Stage',
-                'rotten-lead'         => 'Rotten Lead',
+                'rotten-lead'         => 'Rotten Case',
                 'expected-close-date' => 'Expected Close Date',
                 'created-at'          => 'Created At',
                 'no'                  => 'No',
@@ -1683,14 +1683,14 @@ return [
 
             'kanban' => [
                 'rotten-days'            => 'Lead is rotten for :days days',
-                'empty-list'             => 'Your Leads List is Empty',
-                'empty-list-description' => 'Create a lead to organize your goals.',
-                'create-lead-btn'        => 'Create Lead',
+                'empty-list'             => 'Your Cases List is Empty',
+                'empty-list-description' => 'Create a Case.',
+                'create-lead-btn'        => 'Create a Case',
 
                 'columns' => [
-                    'contact-person'      => 'Contact Person',
+                    'contact-person'      => 'Next of Kin',
                     'id'                  => 'ID',
-                    'lead-type'           => 'Lead Type',
+                    'lead-type'           => 'Case Type',
                     'lead-value'          => 'Lead Value',
                     'sales-person'        => 'Sales Person',
                     'source'              => 'Source',
@@ -1722,23 +1722,23 @@ return [
         ],
 
         'create' => [
-            'title'          => 'Create Lead',
+            'title'          => 'Create Case',
             'save-btn'       => 'Save',
-            'details'        => 'Details',
-            'details-info'   => 'Put The Basic Information of the Lead',
-            'contact-person' => 'Contact Person',
-            'contact-info'   => 'Information About the Contact Person',
+            'details'        => 'Demographics',
+            'details-info'   => 'Enter Basic Information of the Case',
+            'contact-person' => 'Next of Kin',
+            'contact-info'   => 'Information About the Next of Kin',
             'products'       => 'Products',
             'products-info'  => 'Information About the Products',
         ],
 
         'edit' => [
-            'title'          => 'Edit Lead',
+            'title'          => 'Edit Case',
             'save-btn'       => 'Save',
             'details'        => 'Details',
-            'details-info'   => 'Put The Basic Information of the Lead',
-            'contact-person' => 'Contact Person',
-            'contact-info'   => 'Information About the Contact Person',
+            'details-info'   => 'Put The Basic Information of the Case',
+            'contact-person' => 'Next of Kin',
+            'contact-info'   => 'Information About the Next of Kin',
             'products'       => 'Products',
             'products-info'  => 'Information About the Products',
         ],
@@ -1773,7 +1773,7 @@ return [
             ],
 
             'attributes' => [
-                'title' => 'About Lead',
+                'title' => 'About Case',
             ],
 
             'quotes'=> [
@@ -1789,7 +1789,7 @@ return [
                 'download'        => 'Download',
                 'destroy-success' => 'Quote deleted successfully.',
                 'empty-title'     => 'No Quotes Found',
-                'empty-info'      => 'No Quotes Found for this Lead',
+                'empty-info'      => 'No Quotes Found for this Case',
                 'add-btn'         => 'Add Quote',
             ],
 
@@ -1802,7 +1802,7 @@ return [
                 'add-more'     => 'Add More',
                 'total'        => 'Total',
                 'empty-title'  => 'No Products Found',
-                'empty-info'   => 'No Products Found for this Lead',
+                'empty-info'   => 'No Products Found for this Case',
                 'add-product'  => 'Add Product',
             ],
 
@@ -1863,19 +1863,19 @@ return [
             ],
 
             'over-all' => [
-                'average-lead-value'    => 'Average Lead Value',
-                'total-leads'           => 'Total Leads',
-                'average-leads-per-day' => 'Average Leads Per Day',
+                'average-lead-value'    => 'Average Case Value',
+                'total-leads'           => 'Total Cases',
+                'average-leads-per-day' => 'Average Cases Per Day',
                 'total-quotations'      => 'Total Quotations',
                 'total-persons'         => 'Total Deceased',
                 'total-organizations'   => 'Total Organizations',
             ],
 
             'total-leads' => [
-                'title' => 'Leads',
-                'total' => 'Total Leads',
-                'won'   => 'Won Leads',
-                'lost'  => 'Lost Leads',
+                'title' => 'Cases',
+                'total' => 'Total Cases',
+                'won'   => 'Won Cases',
+                'lost'  => 'Lost Cases',
             ],
 
             'revenue-by-sources' => [
@@ -1903,7 +1903,7 @@ return [
             ],
 
             'open-leads-by-states' => [
-                'title'       => 'Open Leads By States',
+                'title'       => 'Open Cases By States',
                 'empty-title' => 'No Data Available',
                 'empty-info'  => 'No data available for selected interval',
             ],
@@ -1913,7 +1913,7 @@ return [
     'layouts' => [
         'app-version'          => 'Version: :version',
         'dashboard'            => 'Dashboard',
-        'leads'                => 'Leads',
+        'leads'                => 'Cases',
         'quotes'               => 'Quotes',
         'quote'                => 'Quote',
         'mail'                 => [
@@ -1944,8 +1944,8 @@ return [
         'roles-info'           => 'Add, edit or delete roles from CRM',
         'users'                => 'Users',
         'users-info'           => 'Add, edit or delete users from CRM',
-        'lead'                 => 'Lead',
-        'lead-info'            => 'Manage all your leads related settings in the CRM',
+        'lead'                 => 'Case',
+        'lead-info'            => 'Manage all your Cases related settings in the CRM',
         'pipelines'            => 'Pipelines',
         'pipelines-info'       => 'Add, edit or delete pipelines from CRM',
         'sources'              => 'Sources',
