@@ -78,13 +78,13 @@
             </div>
 
             <div class="detail-row">
-                <span class="detail-label">@lang('admin::app.contacts.persons.name'):</span>
+                <span class="detail-label">@lang('admin::app.contacts.persons.index.datagrid.name'):</span>
                 <span>{{ $person->name }}</span>
             </div>
 
             @if ($person->contact_numbers)
                 <div class="detail-row">
-                    <span class="detail-label">@lang('admin::app.contacts.persons.contact-numbers'):</span>
+                    <span class="detail-label">@lang('admin::app.contacts.persons.index.datagrid.contact-numbers'):</span>
                     @foreach ($person->contact_numbers as $number)
                         <div>{{ $number['value'] ?? '' }}</div>
                     @endforeach
@@ -93,7 +93,7 @@
 
             @if ($person->created_at)
                 <div class="detail-row">
-                    <span class="detail-label">@lang('admin::app.contacts.persons.created-date'):</span>
+                    <span class="detail-label">@lang('admin::app.contacts.persons.index.datagrid.created-date'):</span>
                     <span>{{ $person->created_at->format('d M Y') }}</span>
                 </div>
             @endif
