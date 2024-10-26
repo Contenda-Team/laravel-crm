@@ -22,20 +22,19 @@ class PersonDataGrid extends DataGrid
     public function prepareQueryBuilder(): Builder
     {
         $queryBuilder = DB::table('persons')
+            ->leftJoin('users', 'persons.user_id', '=', 'users.id')
             ->addSelect(
                 'persons.id',
-                'persons.user_id',
                 'persons.name as person_name',
                 'persons.contact_numbers',
+                'users.id as user_id',
+                'users.name as sales_person'
             );
 
-        if ($userIds = bouncer()->getAuthorizedUserIds()) {
-            $queryBuilder->whereIn('persons.user_id', $userIds);
-        }
-
         $this->addFilter('id', 'persons.id');
-        $this->addFilter('user_id', 'persons.user_id');
         $this->addFilter('person_name', 'persons.name');
+        $this->addFilter('sales_person', 'users.name');
+        $this->addFilter('user_id', 'persons.user_id');
 
         return $queryBuilder;
     }
@@ -56,12 +55,19 @@ class PersonDataGrid extends DataGrid
         ]);
 
         $this->addColumn([
-            'index'      => 'user_id',
-            'label'      => trans('admin::app.contacts.persons.index.datagrid.user-id'),
-            'type'       => 'integer',
-            'sortable'   => true,
-            'filterable' => true,
-            'searchable' => true,
+            'index'              => 'sales_person',
+            'label'              => trans('admin::app.contacts.persons.index.datagrid.sales-person'),
+            'type'               => 'string',
+            'sortable'           => true,
+            'filterable'         => true,
+            'filterable_type'    => 'searchable_dropdown',
+            'filterable_options' => [
+                'repository' => \Webkul\User\Repositories\UserRepository::class,
+                'column'     => [
+                    'label' => 'name',
+                    'value' => 'name',
+                ],
+            ],
         ]);
 
         $this->addColumn([

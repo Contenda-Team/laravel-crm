@@ -17,9 +17,8 @@ class PersonResource extends JsonResource
         return [
             'id'              => $this->id,
             'name'            => $this->name,
-            'emails'          => $this->emails,
+            'user'            => new UserResource($this->user),
             'contact_numbers' => $this->contact_numbers,
-            'organization'    => new OrganizationResource($this->organization),
             'created_at'      => $this->created_at,
             'updated_at'      => $this->updated_at,
         ];

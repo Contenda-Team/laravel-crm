@@ -45,9 +45,27 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Form fields -->
             <div class="box-shadow rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900">
+                <x-admin::form.control-group>
+                    <x-admin::form.control-group.label class="required">
+                        @lang('admin::app.contacts.persons.create.sales-person')
+                    </x-admin::form.control-group.label>
+
+                    <x-admin::form.control-group.control
+                        type="select"
+                        name="user_id"
+                        rules="required"
+                        :label="trans('admin::app.contacts.persons.create.sales-person')"
+                    >
+                        @foreach (app('Webkul\User\Repositories\UserRepository')->all() as $user)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endforeach
+                    </x-admin::form.control-group.control>
+
+                    <x-admin::form.control-group.error control-name="user_id" />
+                </x-admin::form.control-group>
                 {!! view_render_event('admin.persons.create.form_controls.before') !!}
 
                 <x-admin::attributes

@@ -534,11 +534,10 @@ return [
                     'contact-numbers'   => 'Contact Numbers',
                     'delete'            => 'Delete',
                     'edit'              => 'Edit',
-                    'user-id'           => 'Coroner',
+                    'sales-person'      => 'Coroner',
                     'id'                => 'ID',
                     'view'              => 'View',
                     'name'              => 'Name',
-                    'organization-name' => 'Organization Name',
                 ],
             ],
 
@@ -613,6 +612,7 @@ return [
             ],
 
             'create' => [
+                'sales-person' => 'Coroner',
                 'title'    => 'Create Deceased',
                 'save-btn' => 'Save Deceased',
             ],
