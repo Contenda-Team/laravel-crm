@@ -53,6 +53,18 @@ class Dashboard
         ];
     }
 
+       /**
+     * Returns the selected statistics.
+     */
+    public function getSelectedStats(): array
+    {
+        return [
+            'total_leads'           => $this->leadReporting->getTotalLeadsProgress(),
+            'average_lead_value'    => $this->leadReporting->getAverageLeadValueProgress(),
+            'average_leads_per_day' => $this->leadReporting->getAverageLeadsPerDayProgress(),
+        ];
+    }
+
     /**
      * Returns leads statistics.
      */
@@ -99,10 +111,7 @@ class Dashboard
     /**
      * Returns top selling products statistics.
      */
-    public function getTopSellingProducts(): Collection
-    {
-        return $this->productReporting->getTopSellingProductsByRevenue(5);
-    }
+
 
     /**
      * Returns top selling products statistics.

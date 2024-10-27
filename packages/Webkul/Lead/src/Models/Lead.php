@@ -112,10 +112,7 @@ class Lead extends Model implements LeadContract
     /**
      * Get the products.
      */
-    public function products()
-    {
-        return $this->hasMany(ProductProxy::modelClass());
-    }
+ 
 
     /**
      * Get the emails.

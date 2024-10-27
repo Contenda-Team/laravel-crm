@@ -180,7 +180,7 @@ return [
         'name'       => 'admin::app.layouts.warehouse',
         'info'       => 'admin::app.layouts.warehouses-info',
         'route'      => 'admin.settings.pipelines.index',
-        'icon-class' => '',
+        'icon-class' => 'icon-settings-warehouse',
         'sort'       => 2,
     ], [
         'key'        => 'settings.warehouse.warehouses',

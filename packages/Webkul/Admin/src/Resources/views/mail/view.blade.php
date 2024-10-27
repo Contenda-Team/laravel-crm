@@ -1104,14 +1104,14 @@
                                         </div>
                                             
                                         <div v-show="selectedType == 'person'">
-                                            @include('admin::leads.common.contact')
+                                           
                                         </div>
 
                                         <div 
                                             class="overflow-y-auto"
                                             v-show="selectedType == 'product'"
                                         >
-                                            @include('admin::leads.common.products')
+                                           
                                         </div>
                                     </div>
                                 </div>

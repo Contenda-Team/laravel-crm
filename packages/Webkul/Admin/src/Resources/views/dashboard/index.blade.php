@@ -52,10 +52,12 @@
 
             <div class="flex gap-4 [&>*]:flex-1">
                 <!-- Total Products -->
-                @include('admin::dashboard.index.top-selling-products')
+                
+            </div>
 
-                <!-- Total Persons -->
-                @include('admin::dashboard.index.top-persons')
+            <div class="selected-stats">
+
+                <!-- Add any other relevant statistics here -->
             </div>
         </div>
 
@@ -64,16 +66,8 @@
         <!-- Right Section -->
         {!! view_render_event('admin.dashboard.index.content.right.before') !!}
 
-        <div class="flex w-[378px] max-w-full flex-col gap-4 max-sm:w-full">
-            <!-- Revenue by Types -->
-            @include('admin::dashboard.index.open-leads-by-states')
-
-            <!-- Revenue by Sources -->
-            @include('admin::dashboard.index.revenue-by-sources')
-
-            <!-- Revenue by Types -->
-            @include('admin::dashboard.index.revenue-by-types')
-        </div>
+      
+     
 
         {!! view_render_event('admin.dashboard.index.content.left.after') !!}
     </div>

@@ -534,10 +534,11 @@ return [
                     'contact-numbers'   => 'Contact Numbers',
                     'delete'            => 'Delete',
                     'edit'              => 'Edit',
-                    'sales-person'      => 'Coroner',
+                    'user-id'           => 'Coroner',
                     'id'                => 'ID',
                     'view'              => 'View',
                     'name'              => 'Name',
+                    'organization-name' => 'Organization Name',
                 ],
             ],
 
@@ -612,9 +613,8 @@ return [
             ],
 
             'create' => [
-                'sales-person' => 'Coroner',
-                'title'    => 'Create Deceased',
-                'save-btn' => 'Save Deceased',
+                'title'    => 'Create Deceased Case',
+                'save-btn' => 'Save Deceased Case',
             ],
 
             'edit' => [
@@ -1725,22 +1725,18 @@ return [
             'title'          => 'Create Case',
             'save-btn'       => 'Save',
             'details'        => 'Demographics',
-            'details-info'   => 'Enter Basic Information of the Case',
+            'details-info'   => 'Basic Information of the Deceased',
             'contact-person' => 'Next of Kin',
             'contact-info'   => 'Information About the Next of Kin',
-            'products'       => 'Products',
-            'products-info'  => 'Information About the Products',
         ],
 
         'edit' => [
             'title'          => 'Edit Case',
             'save-btn'       => 'Save',
             'details'        => 'Details',
-            'details-info'   => 'Put The Basic Information of the Case',
+            'details-info'   => 'Basic Information of the Deceased',
             'contact-person' => 'Next of Kin',
             'contact-info'   => 'Information About the Next of Kin',
-            'products'       => 'Products',
-            'products-info'  => 'Information About the Products',
         ],
 
         'common' => [
@@ -1750,16 +1746,6 @@ return [
                 'contact-number' => 'Contact Number',
                 'organization'   => 'Organization',
             ],
-
-            'products' => [
-                'product-name' => 'Product Name',
-                'quantity'     => 'Quantity',
-                'price'        => 'Price',
-                'amount'       => 'Amount',
-                'action'       => 'Action',
-                'add-more'     => 'Add More',
-                'total'        => 'Total',
-            ],
         ],
 
         'view' => [
@@ -1768,8 +1754,6 @@ return [
 
             'tabs'        => [
                 'description' => 'Description',
-                'products'    => 'Products',
-                'quotes'      => 'Quotes',
             ],
 
             'attributes' => [
@@ -1869,6 +1853,10 @@ return [
                 'total-quotations'      => 'Total Quotations',
                 'total-persons'         => 'Total Deceased',
                 'total-organizations'   => 'Total Organizations',
+            ],
+
+            'selected' => [
+                'title' => 'Selected',
             ],
 
             'total-leads' => [

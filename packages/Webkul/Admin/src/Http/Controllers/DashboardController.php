@@ -13,13 +13,13 @@ class DashboardController extends Controller
      */
     protected $typeFunctions = [
         'over-all'             => 'getOverAllStats',
+        'selected'             => 'getSelectedStats',
         'revenue-stats'        => 'getRevenueStats',
         'total-leads'          => 'getTotalLeadsStats',
         'revenue-by-sources'   => 'getLeadsStatsBySources',
         'revenue-by-types'     => 'getLeadsStatsByTypes',
         'top-selling-products' => 'getTopSellingProducts',
         'top-persons'          => 'getTopPersons',
-        'open-leads-by-states' => 'getOpenLeadsByStates',
     ];
 
     /**
@@ -39,6 +39,8 @@ class DashboardController extends Controller
         return view('admin::dashboard.index')->with([
             'startDate' => $this->dashboardHelper->getStartDate(),
             'endDate'   => $this->dashboardHelper->getEndDate(),
+            'selectedStats' => $this->dashboardHelper->getSelectedStats(),
+            
         ]);
     }
 
