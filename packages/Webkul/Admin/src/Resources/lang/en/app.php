@@ -538,7 +538,6 @@ return [
                     'id'                => 'ID',
                     'view'              => 'View',
                     'name'              => 'Name',
-                    'organization-name' => 'Organization Name',
                 ],
             ],
 

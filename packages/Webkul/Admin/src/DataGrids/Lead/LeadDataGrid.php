@@ -154,16 +154,6 @@ class LeadDataGrid extends DataGrid
         ]);
 
         $this->addColumn([
-            'index'      => 'lead_value',
-            'label'      => trans('admin::app.leads.index.datagrid.lead-value'),
-            'type'       => 'string',
-            'sortable'   => true,
-            'searchable' => false,
-            'filterable' => true,
-            'closure'    => fn ($row) => core()->formatBasePrice($row->lead_value, 2),
-        ]);
-
-        $this->addColumn([
             'index'              => 'lead_type_name',
             'label'              => trans('admin::app.leads.index.datagrid.lead-type'),
             'type'               => 'string',

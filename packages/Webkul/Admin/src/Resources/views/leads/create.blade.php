@@ -109,7 +109,7 @@
                             <!-- Lead Details Title and Description -->
                             <x-admin::attributes
                                 :custom-attributes="app('Webkul\Attribute\Repositories\AttributeRepository')->findWhere([
-                                    ['code', 'NOTIN', ['lead_type_id', 'user_id']],
+                                    ['code', 'NOTIN', ['lead_type_id', 'user_id', 'lead_value']], // Exclude 'lead_value'
                                     'entity_type' => 'leads',
                                     'quick_add'   => 1
                                 ])"
