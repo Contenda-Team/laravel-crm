@@ -29,6 +29,8 @@ Route::prefix('contacts')->group(function () {
 
         Route::post('mass-destroy', 'massDestroy')->name('admin.contacts.persons.mass_delete');
 
+        Route::put('update-cause-of-death/{id}', 'updateCauseOfDeath')->name('admin.contacts.persons.update_cause_of_death');
+
         /**
          * Tag routes.
          */

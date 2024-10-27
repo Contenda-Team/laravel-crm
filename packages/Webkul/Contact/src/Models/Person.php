@@ -40,6 +40,7 @@ class Person extends Model implements PersonContract
     protected $fillable = [
         'name',
         'contact_numbers',
+        'cause_of_death',
         'user_id',
     ];
 
