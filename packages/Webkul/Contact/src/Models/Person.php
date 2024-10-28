@@ -11,6 +11,7 @@ use Webkul\Contact\Contracts\Person as PersonContract;
 use Webkul\Contact\Database\Factories\PersonFactory;
 use Webkul\Tag\Models\TagProxy;
 use Webkul\User\Models\UserProxy;
+use Webkul\Contact\Models\PersonStatus;
 
 class Person extends Model implements PersonContract
 {
@@ -75,5 +76,11 @@ class Person extends Model implements PersonContract
     protected static function newFactory()
     {
         return PersonFactory::new();
+    }
+
+    // Add this relationship if it doesn't exist
+    public function status()
+    {
+        return $this->belongsTo(PersonStatus::class, 'status_id');
     }
 }

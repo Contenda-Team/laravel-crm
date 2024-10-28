@@ -16,7 +16,11 @@ use Webkul\Admin\Http\Requests\AttributeForm;
 use Webkul\Admin\Http\Requests\MassDestroyRequest;
 use Webkul\Admin\Http\Resources\PersonResource;
 use Webkul\Contact\Repositories\PersonRepository;
+use Webkul\Contact\Repositories\PersonStatusRepository;
 use Webkul\Core\Traits\PDFHandler;
+use Webkul\Admin\Repositories\OrganizationRepository;
+use Webkul\Admin\Repositories\UserRepository;
+use Webkul\Admin\Enums\DateRangeOptionEnum;
 
 class PersonController extends Controller
 {
@@ -27,8 +31,10 @@ class PersonController extends Controller
      *
      * @return void
      */
-    public function __construct(protected PersonRepository $personRepository)
-    {
+    public function __construct(
+        protected PersonRepository $personRepository,
+        protected PersonStatusRepository $personStatusRepository
+    ) {
         request()->request->add(['entity_type' => 'persons']);
     }
 
@@ -37,11 +43,17 @@ class PersonController extends Controller
      */
     public function index(): View|JsonResponse
     {
-        if (request()->ajax()) {
-            return datagrid(PersonDataGrid::class)->process();
+        $statuses = app(PersonStatusRepository::class)->all();
+        $currentStatus = null;
+
+        if (request('status')) {
+            $currentStatus = $this->personStatusRepository->find(request('status'));
         }
 
-        return view('admin::contacts.persons.index');
+        return view('admin::contacts.persons.index', [
+            'currentStatus' => $currentStatus,
+            'statuses' => $statuses,
+        ]);
     }
 
     /**
@@ -209,5 +221,188 @@ class PersonController extends Controller
             view('admin::contacts.persons.pdf', compact('person'))->render(),
             'Person_' . $person->name . '_' . $person->created_at->format('d-m-Y')
         );
+    }
+
+    /**
+     * Get persons grouped by status.
+     */
+    public function get(): JsonResponse
+    {
+        $data = [];
+        
+        $statuses = $this->personStatusRepository->all();
+
+        foreach ($statuses as $status) {
+            $query = $this->personRepository
+                ->pushCriteria(app(RequestCriteria::class))
+                ->where('status_id', $status->id);
+
+            if ($userIds = bouncer()->getAuthorizedUserIds()) {
+                $query->whereIn('user_id', $userIds);
+            }
+
+            $paginator = $query->with([
+                'tags',
+                'organization',
+                'user',
+            ])->paginate(10);
+
+            $data[$status->id] = [
+                'id'   => $status->id,
+                'name' => $status->name,
+                'persons' => [
+                    'data' => $paginator->items(),
+                    'meta' => [
+                        'current_page' => $paginator->currentPage(),
+                        'from'         => $paginator->firstItem(),
+                        'last_page'    => $paginator->lastPage(),
+                        'per_page'     => $paginator->perPage(),
+                        'to'           => $paginator->lastItem(),
+                        'total'        => $paginator->total(),
+                    ],
+                ]
+            ];
+        }
+
+        return response()->json($data);
+    }
+
+    /**
+     * Update person status.
+     */
+    public function updateStatus(int $id): JsonResponse
+    {
+        $person = $this->personRepository->findOrFail($id);
+
+        Event::dispatch('contacts.person.update.status.before', $person);
+
+        $person = $this->personRepository->update([
+            'status_id' => request('status_id'),
+        ], $id);
+
+        Event::dispatch('contacts.person.update.status.after', $person);
+
+        return response()->json([
+            'message' => trans('admin::app.contacts.persons.index.status-update-success'),
+        ]);
+    }
+
+    /**
+     * Kanban lookup.
+     */
+    public function kanbanLookup()
+    {
+        $params = $this->validate(request(), [
+            'column'      => ['required'],
+            'search'      => ['required', 'min:2'],
+        ]);
+
+        $column = collect($this->getKanbanColumns())->where('index', $params['column'])->firstOrFail();
+
+        return app($column['filterable_options']['repository'])
+            ->select([
+                $column['filterable_options']['column']['label'].' as label',
+                $column['filterable_options']['column']['value'].' as value'
+            ])
+            ->where($column['filterable_options']['column']['label'], 'LIKE', '%'.$params['search'].'%')
+            ->get()
+            ->map
+            ->only('label', 'value');
+    }
+
+    /**
+     * Get columns for the kanban view.
+     */
+    private function getKanbanColumns(): array
+    {
+        return [
+            [
+                'index'                 => 'id',
+                'label'                 => trans('admin::app.contacts.persons.index.columns.id'),
+                'type'                  => 'integer',
+                'searchable'            => false,
+                'search_field'          => 'in',
+                'filterable'            => true,
+                'filterable_type'       => null,
+                'filterable_options'    => [],
+                'allow_multiple_values' => true,
+                'sortable'              => true,
+                'visibility'            => true,
+            ],
+            [
+                'index'                 => 'name',
+                'label'                 => trans('admin::app.contacts.persons.index.columns.name'),
+                'type'                  => 'string',
+                'searchable'            => true,
+                'search_field'          => 'like',
+                'filterable'            => true,
+                'filterable_type'       => null,
+                'filterable_options'    => [],
+                'allow_multiple_values' => false,
+                'sortable'              => true,
+                'visibility'            => true,
+            ],
+            [
+                'index'                 => 'emails',
+                'label'                 => trans('admin::app.contacts.persons.index.columns.email'),
+                'type'                  => 'string',
+                'searchable'            => true,
+                'search_field'          => 'like',
+                'filterable'            => true,
+                'filterable_type'       => null,
+                'filterable_options'    => [],
+                'allow_multiple_values' => false,
+                'sortable'              => true,
+                'visibility'            => true,
+            ],
+            [
+                'index'                 => 'organization_id',
+                'label'                 => trans('admin::app.contacts.persons.index.columns.organization'),
+                'type'                  => 'string',
+                'searchable'            => false,
+                'search_field'          => 'in',
+                'filterable'            => true,
+                'filterable_type'       => 'searchable_dropdown',
+                'filterable_options'    => [
+                    'repository' => OrganizationRepository::class,
+                    'column'     => [
+                        'label' => 'name',
+                        'value' => 'id',
+                    ],
+                ],
+                'allow_multiple_values' => true,
+                'sortable'              => true,
+                'visibility'            => true,
+            ],
+            [
+                'index'                 => 'user_id',
+                'label'                 => trans('admin::app.contacts.persons.index.columns.sales-person'),
+                'type'                  => 'string',
+                'searchable'            => false,
+                'search_field'          => 'in',
+                'filterable'            => true,
+                'filterable_type'       => 'searchable_dropdown',
+                'filterable_options'    => [
+                    'repository' => UserRepository::class,
+                    'column'     => [
+                        'label' => 'name',
+                        'value' => 'id',
+                    ],
+                ],
+                'allow_multiple_values' => true,
+                'sortable'              => true,
+                'visibility'            => true,
+            ],
+            [
+                'index'              => 'created_at',
+                'label'              => trans('admin::app.contacts.persons.index.columns.created-at'),
+                'type'               => 'date',
+                'searchable'         => false,
+                'sortable'           => true,
+                'filterable'         => true,
+                'filterable_type'    => 'date_range',
+                'filterable_options' => DateRangeOptionEnum::options(),
+            ],
+        ];
     }
 }

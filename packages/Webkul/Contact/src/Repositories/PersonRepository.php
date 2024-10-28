@@ -116,4 +116,36 @@ class PersonRepository extends Repository
             ->get()
             ->count();
     }
+
+    public function getPersonsByStatus($statusId, array $params = [])
+    {
+        $query = $this->with([
+            'tags',
+            'organization',
+            'user',
+            'attribute_values',
+        ])->scopeQuery(function ($query) use ($statusId, $params) {
+            $query = $query->where('status_id', $statusId);
+
+            if ($userIds = bouncer()->getAuthorizedUserIds()) {
+                $query->whereIn('user_id', $userIds);
+            }
+
+            return $query;
+        });
+
+        $paginator = $query->paginate($params['limit'] ?? 10);
+
+        return [
+            'data' => $paginator->items(),
+            'meta' => [
+                'current_page' => $paginator->currentPage(),
+                'from'         => $paginator->firstItem(),
+                'last_page'    => $paginator->lastPage(),
+                'per_page'     => $paginator->perPage(),
+                'to'           => $paginator->lastItem(),
+                'total'        => $paginator->total(),
+            ],
+        ];
+    }
 }

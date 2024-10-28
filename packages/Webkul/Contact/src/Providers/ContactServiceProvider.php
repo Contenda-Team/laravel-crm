@@ -2,26 +2,28 @@
 
 namespace Webkul\Contact\Providers;
 
-use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Webkul\Contact\Models\Person;
+use Webkul\Contact\Models\PersonStatus;
+use Webkul\Contact\Contracts\PersonStatus as PersonStatusContract;
 
 class ContactServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap services.
-     *
-     * @return void
+     * Register services.
      */
-    public function boot(Router $router)
+    public function register(): void
     {
-        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
+        $this->app->bind(
+            PersonStatusContract::class,
+            PersonStatus::class
+        );
     }
 
     /**
-     * Register services.
-     *
-     * @return void
+     * Bootstrap services.
      */
-    public function register() {}
+    public function boot(): void
+    {
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+    }
 }
